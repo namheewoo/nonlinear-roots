@@ -12,8 +12,8 @@ class NewtonMATLABLike(RootSolver):
         if df is None:
             raise ValueError("Newton needs derivative df.")
 
-        # mynt는 절대오차(es) -> tol 그대로 전달
-        root, fx, ea, iters = mynt(f, df, x0, es=tol, maxit=maxit)
+        # Newton는 절대오차(es) -> tol 그대로 전달
+        root, fx, ea, iters = Newton(f, df, x0, es=tol, maxit=maxit)
 
         # 함수 평가 수 추정: 각 반복마다 f, df 한 번 → 대략 2*iters
         n_f = iters
