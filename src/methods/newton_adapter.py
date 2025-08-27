@@ -1,6 +1,6 @@
 from typing import Callable, Optional
 from ..core import RootSolver, SolverResult
-from .newton_fn import mynt
+from .newton_fn import Newton
 
 class NewtonMATLABLike(RootSolver):
     def solve(self, f: Callable[[float], float], df: Optional[Callable[[float], float]] = None,

@@ -1,6 +1,6 @@
 from typing import Callable, Tuple
 
-def mynt(f: Callable[[float], float],
+def Newton(f: Callable[[float], float],
          df: Callable[[float], float],
          x0: float,
          es: float = 1.0e-6,       # 원하는 오차 (기본값 1e-6)
