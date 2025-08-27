@@ -14,7 +14,7 @@ def bisect(func: Callable[..., float],
     if fl * fu > 0:
         raise ValueError("no sign change: f(xl) and f(xu) must have opposite signs")
 
-    iter_ = 0
+    iters = 0
     xr = xl
     ea = float("inf")
     fr = fl  # 초기화
@@ -22,7 +22,7 @@ def bisect(func: Callable[..., float],
     while True:
         xrold = xr
         xr = 0.5 * (xl + xu)        # 중점
-        iter_ += 1
+        iters += 1
         fr = func(xr, *args)
 
         # 구간 갱신
@@ -41,9 +41,9 @@ def bisect(func: Callable[..., float],
             ea = abs((xr - xrold) / xr) * 100.0
 
         # 종료 조건 체크
-        if ea <= es or iter_ >= maxit:
+        if ea <= es or iters >= maxit:
             break
 
     root = xr
     fx = fr
-    return root, fx, ea, iter_
+    return root, fx, ea, iters
